@@ -1,0 +1,37 @@
+// Helper functions:
+
+var artboardForObject = function(object) {
+  if (object.isKindOfClass(MSArtboardGroup)) {
+    return object;
+  } else if (object.parentGroup() != null) {
+    return artboardForObject(object.parentGroup());
+  } else {
+    return null;
+  }
+};
+
+
+// Handlers:
+
+var selectParentArtboards = function(context) {
+  var selection = context.selection;
+  var doc = context.document;
+  var page = doc.currentPage();
+  var artboards = page.artboards();
+
+  var artboardsToSelect = [];
+  var selectionLoop = selection.objectEnumerator();
+  var object;
+  while (object = selectionLoop.nextObject()) {
+    var artboard = artboardForObject(object);
+    if (artboard != null) {
+      artboardsToSelect.push(artboard);
+    }
+  }
+  page.deselectAllLayers();
+
+  for (var i = 0; i < artboardsToSelect.length; i++) {
+    var artboard = artboardsToSelect[i];
+    artboard.select_byExpandingSelection(true, true);
+  }
+}

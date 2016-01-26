@@ -1,0 +1,22 @@
+{
+  "author" : "Nefaur Khandker",
+  "commands" : [
+    {
+      "script" : "script.cocoascript",
+      "handler" : "selectParentArtboards",
+      "shortcut" : "cmd ctrl a",
+      "name" : "Select Parent Artboards",
+      "identifier" : "selectParentArtboards"
+    }
+  ],
+  "menu": {
+    "items": [
+      "selectParentArtboards"
+    ]
+  },
+  "identifier" : "com.nefaurk.sketch-plugins.selectParentArtboards",
+  "version" : "1.0",
+  "description" : "Selects the parent artboards of the current selection",
+  "authorEmail" : "nefaurk@gmail.com",
+  "name" : "Select Parent Artboards"
+}
