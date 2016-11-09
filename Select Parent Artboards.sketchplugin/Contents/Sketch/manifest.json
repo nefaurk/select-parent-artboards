@@ -10,6 +10,8 @@
     }
   ],
   "menu": {
+    "title" : "Select Parent Artboards",
+    "isRoot" : true,
     "items": [
       "selectParentArtboards"
     ]
