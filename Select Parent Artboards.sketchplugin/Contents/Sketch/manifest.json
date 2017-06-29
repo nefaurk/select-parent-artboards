@@ -1,5 +1,13 @@
 {
+  "name" : "Select Parent Artboards",
+  "description" : "Selects the parent artboards of the current selection",
   "author" : "Nefaur Khandker",
+  "authorEmail" : "nefaurk@gmail.com",
+  "homepage": "http://github.com/nefaurk/select-parent-artboards",
+  "version" : "1.1",
+  "identifier" : "com.nefaurk.sketch-plugins.selectParentArtboards",
+  "appcast": "https://nefaurk.github.io/sketch-plugins/appcast/select-parent-artboards.xml",
+  "compatibleVersion": "45",
   "commands" : [
     {
       "script" : "script.cocoascript",
@@ -15,10 +23,5 @@
     "items": [
       "selectParentArtboards"
     ]
-  },
-  "identifier" : "com.nefaurk.sketch-plugins.selectParentArtboards",
-  "version" : "1.0",
-  "description" : "Selects the parent artboards of the current selection",
-  "authorEmail" : "nefaurk@gmail.com",
-  "name" : "Select Parent Artboards"
+  }
 }

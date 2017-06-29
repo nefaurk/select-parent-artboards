@@ -1,10 +1,10 @@
 // Helper functions:
 
-var artboardForObject = function(object) {
-  if (object.isKindOfClass(MSArtboardGroup)) {
-    return object;
-  } else if (object.parentGroup() != null) {
-    return artboardForObject(object.parentGroup());
+var artboardForItem = function(item) {
+  if (item.isArtboard) {
+    return item;
+  } else if (item.container != null) {
+    return artboardForItem(item.container);
   } else {
     return null;
   }
@@ -14,24 +14,22 @@ var artboardForObject = function(object) {
 // Handlers:
 
 var selectParentArtboards = function(context) {
-  var selection = context.selection;
-  var doc = context.document;
-  var page = doc.currentPage();
-  var artboards = page.artboards();
-
+  var sketch = context.api();
+  var document = sketch.selectedDocument;
+  var selection = document.selectedLayers;
+  var page = document.selectedPage;
+  
   var artboardsToSelect = [];
-  var selectionLoop = selection.objectEnumerator();
-  var object;
-  while (object = selectionLoop.nextObject()) {
-    var artboard = artboardForObject(object);
+  selection.iterate(function(item) {
+    var artboard = artboardForItem(item);
     if (artboard != null) {
       artboardsToSelect.push(artboard);
     }
-  }
-  page.deselectAllLayers();
+  });
+  selection.clear();
 
   for (var i = 0; i < artboardsToSelect.length; i++) {
     var artboard = artboardsToSelect[i];
-    artboard.select_byExpandingSelection(true, true);
+    artboard.addToSelection();
   }
 }
