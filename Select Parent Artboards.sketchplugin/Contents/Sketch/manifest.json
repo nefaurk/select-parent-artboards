@@ -4,10 +4,10 @@
   "author" : "Nefaur Khandker",
   "authorEmail" : "nefaurk@gmail.com",
   "homepage": "http://github.com/nefaurk/select-parent-artboards",
-  "version" : "1.1",
+  "version" : "1.2",
   "identifier" : "com.nefaurk.sketch-plugins.selectParentArtboards",
   "appcast": "https://nefaurk.github.io/sketch-plugins/appcast/select-parent-artboards.xml",
-  "compatibleVersion": "45",
+  "compatibleVersion": "48.1",
   "commands" : [
     {
       "script" : "script.cocoascript",

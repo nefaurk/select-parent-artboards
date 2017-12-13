@@ -8,6 +8,10 @@ This Sketch plugin selects the parent artboards of the current selection when yo
 
 ## Change Log
 
+##### v1.2: 2017-12-13
+
+- Fixing an issue where selecting a symbol wouldn't work
+
 ##### v1.1: 2017-6-28
 
 - Sketch 45 compatibility
