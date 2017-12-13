@@ -1,10 +1,14 @@
 // Helper functions:
 
-var artboardForItem = function(item) {
+var artboardForItem = function(document, item) {
   if (item.isArtboard) {
     return item;
+  } else if (item.sketchObject != null && item.sketchObject.className() == "MSSymbolInstance") {
+    var parent = item.sketchObject.parentGroup();
+    var container = document.wrapObject(parent);
+    return artboardForItem(document, container);
   } else if (item.container != null) {
-    return artboardForItem(item.container);
+    return artboardForItem(document, item.container);
   } else {
     return null;
   }
@@ -21,7 +25,7 @@ var selectParentArtboards = function(context) {
   
   var artboardsToSelect = [];
   selection.iterate(function(item) {
-    var artboard = artboardForItem(item);
+    var artboard = artboardForItem(document, item);
     if (artboard != null) {
       artboardsToSelect.push(artboard);
     }
